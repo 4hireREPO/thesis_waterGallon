@@ -1,4 +1,4 @@
-package com.hire.hire;
+package com.hire;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
