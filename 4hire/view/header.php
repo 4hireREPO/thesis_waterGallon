@@ -10,7 +10,7 @@
     <!-- Materialize and JQuery Imports -->
    
     <!-- <script type="text/javascript" src="assets/js/init.js"> </script> -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-2.1.1.min.js"></script>
     <script rel="stylesheet" src="../assets/js/materialize.min.js"> </script>
     
     <!--javascript Imports -->

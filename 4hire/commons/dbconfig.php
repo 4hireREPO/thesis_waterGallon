@@ -17,7 +17,7 @@ class Database {
 			if (mysqli_connect_errno()) {			
 				echo "[FAILED] Cannot connect to MySQL: " . mysqli_connect_error();			
 			} else {	
-				echo "[SUCCESS] Database instance connected." ;
+				//Do nothing.
 			}
 		}		
 		

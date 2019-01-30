@@ -23,14 +23,42 @@ class Registration {
         $memberType = 0;
         $date = date('Y-m-d H:i:s');
         $isverified = 0;
-        $result = "";
+        $result = 0;
 
         if ($stmt->execute()) {
-            $result = "\n[SUCCESS][Registration] Record created successfully.";
-            $stmt->close();
+            $result = 1;
         } else {
-            $result = "\n[FAILED][Registration] Record not created.";
+            $result = 0;
         }
+
+        $stmt->close();
+                
+		return $result;
+    }
+    
+    public function save($user) {
+        $obj = json_decode($user);
+        $stmt = $this->db->prepare("INSERT INTO profile (memberid, firstname, middlename, lastname, gender, emergencyperson, emergencyrelation, emergencynumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $memberid, $firstname, $middlename, $lastname, $gender, $emergencyperson, $emergencyrelation, $emergencynumber);
+
+        session_start();
+        $memberid = $_SESSION['id'];
+        $firstname = $obj->firstname;
+        $middlename = $obj->middlename;
+        $lastname = $obj->lastname;
+        $gender = $obj->gender;
+        $emergencyperson = $obj->contactPerson;
+        $emergencyrelation = $obj->contactPersonRel;
+        $emergencynumber = $obj->contactPersonNum;
+        $result = 0;
+
+        if ($stmt->execute()) {
+            $result = 1;
+        } else {
+            $result = 0;
+        }
+
+        $stmt->close();
                 
 		return $result;
 	}
